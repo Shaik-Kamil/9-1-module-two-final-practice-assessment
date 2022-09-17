@@ -1,0 +1,37 @@
+* {
+  /* background: linear-gradient(45deg, red, blue45deg, red, blue); */
+}
+body {
+  /* background: red; */
+  background-color: blanchedalmond;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 150px;
+  width: 100%;
+  background: #000000;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+}
+
+hr {
+  text-align: center;
+  width: 50%;
+}
+
+h4 {
+  font-style: italic;
+}
+
+li {
+  list-style-type: none;
+}
