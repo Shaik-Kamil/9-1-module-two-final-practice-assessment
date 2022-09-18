@@ -17,7 +17,7 @@ fetch(url)
     // console.log(fetchCall);
     for (let i = 0; i < data.length; i++) {
       const name = data[i].name;
-      const age = data[i].age;
+      // const age = data[i].age;
       const createOpt = document.createElement('option');
       createOpt.textContent = name;
       createOpt.value = name;
@@ -28,7 +28,8 @@ fetch(url)
 
 //! select add event listener
 
-select.addEventListener('change', () => {
+select.addEventListener('change', (e) => {
+  e.preventDefault();
   const callBack = fetchCall.find(
     (element) => element.name === `${select.value}`
   );
@@ -62,11 +63,13 @@ form.addEventListener('submit', (e) => {
   const list = document.createElement('li');
   list.innerHTML = `<strong>${name}:</strong> ${shoutoutValue}`;
   ul.append(list);
-
+  //!  Select a person error message
   const errorP1 = document.createElement('p');
-  errorP1.innerHTML = '';
+  // errorP1.innerHTML = '';
   // errorP1.classList.add('error');
   errorP1.innerHTML = `Please Select a Person`;
+
+  //! shout out error message
   const errorP = document.createElement('p');
   errorP.innerHTML = '';
   errorP.classList.add('error');
@@ -81,16 +84,17 @@ form.addEventListener('submit', (e) => {
       errorP1.innerHTML = '';
     });
 
-    return;
+    // return;
   }
-
+  form.reset();
   if (!shoutoutValue) {
     errorP.style.display = 'block';
     errorP.style.color = 'red';
     errorP.style.fontWeight = 'bold';
     errorP.style.fontSize = '13px';
     form.append(errorP);
-    shoutout.addEventListener('click', () => {
+    shoutout.addEventListener('click', (e) => {
+      e.preventDefault();
       errorP.innerHTML = '';
     });
     return;
@@ -98,8 +102,6 @@ form.addEventListener('submit', (e) => {
     errorP.style.display = 'none';
     return;
   }
-
-  form.reset();
 });
 
 //! remove button
